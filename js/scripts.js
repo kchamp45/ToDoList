@@ -28,7 +28,7 @@ $(document).ready(function() {
 
     var toDoList = new Tasks(inputTask, inputDate, inputTime, inputLocation, inputStatus);
 
-    $("#List").append("<li><span class='taskName'>" + toDoList.task + "</span></li>");
+    $("#List").append("<li><span class = 'taskName'><input type='checkbox' name='task-item' value='other' >" + toDoList.task +  "</span></li>");
 
     $(".taskName").last().click(function() {
       $("#task-details").show();
@@ -39,10 +39,11 @@ $(document).ready(function() {
       $(".location1").text(toDoList.location);
       $(".status1").text(toDoList.status);
 
-      $('.taskName').click(function(e) {
-        e.preventDefault();
+      $('.taskName').click(function() {
 
+      // $("input:checkbox[name=task-item]:checked").parent().remove();
       $(this).parent().remove();
+      $("#task-details").remove();
      });
 
     });
