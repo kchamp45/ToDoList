@@ -7,9 +7,9 @@ function Tasks (task, date, time, location, status) {
   this.status = status;
 }
 
-// Tasks.prototype.currentStatus = function() {
-//   if (inputStatus === "2") {
-//      this.status = "Task Done";
+// Tasks.prototype.knockOff = function() {
+//   if (inputRemove === "1") {
+//      this.remove;
 //   } else {
 //      this.status = "Task is pending";
 //   }
@@ -25,9 +25,6 @@ $(document).ready(function() {
     var inputTime = $("input#time").val();
     var inputLocation = $("input#location").val();
     var inputStatus = $("#status").val();
-    
-
-
 
     var toDoList = new Tasks(inputTask, inputDate, inputTime, inputLocation, inputStatus);
 
@@ -41,6 +38,12 @@ $(document).ready(function() {
       $(".time1").text(toDoList.time);
       $(".location1").text(toDoList.location);
       $(".status1").text(toDoList.status);
+
+      $('.taskName').click(function(e) {
+        e.preventDefault();
+
+      $(this).parent().remove();
+     });
 
     });
 
